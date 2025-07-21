@@ -1,12 +1,82 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# JSON Schema Builder
 
-Currently, two official plugins are available:
+A dynamic JSON schema builder built with React and Ant Design that allows users to create and edit JSON schemas through an intuitive interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Schema Builder Demo](https://github.com/Prateek-rajput-007/Json-Frontend/raw/main/public/schema-builder-demo.gif)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Dynamic Field Management**:
+  - Add/remove fields of different types (String, Number, Nested)
+  - Edit field names and values
+  - Recursive nested field creation
+
+- **Real-time Preview**:
+  - Live JSON output display
+  - Formatted JSON view with syntax highlighting
+
+- **Responsive Design**:
+  - Works on both desktop and mobile devices
+  - Clean, intuitive UI with Ant Design components
+
+## Tech Stack
+
+- **Frontend**: React.js, Ant Design
+- **Build Tool**: Vite
+- **Styling**: CSS/Tailwind (via Ant Design)
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── SchemaBuilder/
+│   │   ├── SchemaField.jsx
+│   │   ├── SchemaForm.jsx
+│   │   └── index.js
+├── App.js
+├── index.js
+├── styles/
+│   └── globals.css
+```
+
+## Live Demo
+
+- [Live Application](https://json-frontend-sand.vercel.app/)
+- [Demo Video](https://drive.google.com/file/d/1aGB5Y_eoj8vnMWCUewUZnu6LtkIi49Ob/view?usp=sharing)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Prateek-rajput-007/Json-Frontend.git
+   ```
+
+2. Install dependencies:
+   ```bash
+   cd Json-Frontend
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Usage
+
+1. Click "+ Add Field" to create new fields
+2. Select field type from dropdown (String, Number, or Nested)
+3. Edit field names and values directly
+4. For nested fields, click "+ Add Nested Field" to create child fields
+5. View the generated JSON in the preview panel
+6. Use the "Submit" button to process the final JSON
+
+## Implementation Details
+
+- Uses recursive components for nested field rendering
+- State management with React hooks
+- Real-time JSON generation with proper formatting
+- Responsive layout with mobile support
+- Clean UI with Ant Design components
