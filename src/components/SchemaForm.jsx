@@ -97,7 +97,7 @@ const SchemaForm = ({ onSubmit }) => {
       key: 'json',
       label: 'JSON',
       children: (
-        <pre className="bg-gray-50 p-4 rounded">
+        <pre className="bg-gray-50 p-4 rounded overflow-x-auto">
           {JSON.stringify(convertToJSON(), null, 2)}
         </pre>
       ),
@@ -105,10 +105,10 @@ const SchemaForm = ({ onSubmit }) => {
   ];
 
   return (
-    <div className="flex p-4 gap-4" style={{ minHeight: '100vh' }}>
+    <div className="flex flex-col lg:flex-row p-2 md:p-4 gap-4 min-h-screen">
       <Card 
-        title={<Title level={4} className="mb-0">Schema Builder</Title>}
-        className="flex-1"
+        title={<Title level={4} className="mb-0 text-sm md:text-base">Schema Builder</Title>}
+        className="flex-1 w-full"
       >
         <Space direction="vertical" className="w-full">
           {fields.map(field => (
@@ -128,6 +128,7 @@ const SchemaForm = ({ onSubmit }) => {
               type: 'string',
               value: '',
             }])}
+            className="w-full md:w-auto"
           >
             + Add Field
           </Button>
@@ -135,19 +136,21 @@ const SchemaForm = ({ onSubmit }) => {
       </Card>
 
       <Card 
-        title={<Title level={4} className="mb-0">JSON Output</Title>}
-        className="flex-1"
+        title={<Title level={4} className="mb-0 text-sm md:text-base">JSON Output</Title>}
+        className="flex-1 w-full"
       >
         <Tabs 
           activeKey={activeTab} 
           onChange={setActiveTab}
           items={tabItems}
+          className="w-full"
         />
-        <div style={{ marginTop: 16, textAlign: 'right' }}>
+        <div className="mt-4 text-right">
           <Button 
             type="primary" 
             onClick={handleSubmit}
             disabled={fields.length === 0}
+            className="w-full md:w-auto"
           >
             Submit Form
           </Button>

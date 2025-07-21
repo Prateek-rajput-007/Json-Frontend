@@ -71,32 +71,33 @@ const SchemaField = ({
   };
 
   return (
-    <div className="ml-6 pl-4 border-l-2 border-gray-200 mb-3">
-      <Space align="start" className="w-full">
+    <div className="ml-0 md:ml-6 pl-0 md:pl-4 border-l-0 md:border-l-2 border-gray-200 mb-3">
+      <Space align="start" className="w-full flex-wrap gap-2">
         {field.type === 'nested' && (
           <Button
             type="text"
             size="small"
             icon={isExpanded ? <DownOutlined /> : <RightOutlined />}
             onClick={() => setIsExpanded(!isExpanded)}
+            className="hidden md:block"
           />
         )}
 
-        <Form.Item className="mb-0">
+        <Form.Item className="mb-0 w-full md:w-auto flex-1 min-w-[120px]">
           <Input
             placeholder="Field name"
             value={field.key}
             onChange={handleKeyChange}
-            style={{ width: 150 }}
+            className="w-full"
           />
         </Form.Item>
 
-        <Form.Item className="mb-0">
+        <Form.Item className="mb-0 w-full md:w-auto flex-1 min-w-[120px]">
           <Select
             placeholder="Field type"
             value={field.type}
             onChange={handleTypeChange}
-            style={{ width: 120 }}
+            className="w-full"
           >
             <Option value="string">String</Option>
             <Option value="number">Number</Option>
@@ -109,19 +110,19 @@ const SchemaField = ({
         </Form.Item>
 
         {field.type === 'boolean' ? (
-          <Form.Item className="mb-0">
+          <Form.Item className="mb-0 w-full md:w-auto flex-1 min-w-[100px]">
             <Select
               value={field.value}
               onChange={handleValueChange}
-              style={{ width: 100 }}
+              className="w-full"
             >
               <Option value={true}>true</Option>
               <Option value={false}>false</Option>
             </Select>
           </Form.Item>
         ) : field.type === 'array' ? (
-          <Form.Item className="mb-0">
-            <Space.Compact style={{ width: 250 }}>
+          <Form.Item className="mb-0 w-full">
+            <Space.Compact className="w-full">
               <Input
                 value={arrayInput}
                 onChange={handleArrayInputChange}
@@ -134,7 +135,7 @@ const SchemaField = ({
             </Space.Compact>
           </Form.Item>
         ) : (
-          <Form.Item className="mb-0">
+          <Form.Item className="mb-0 w-full md:w-auto flex-1 min-w-[120px]">
             <Input
               type={['number', 'float'].includes(field.type) ? 'number' : 'text'}
               value={field.value}
@@ -144,7 +145,7 @@ const SchemaField = ({
                   : e.target.value
               )}
               placeholder="Value"
-              style={{ width: 150 }}
+              className="w-full"
             />
           </Form.Item>
         )}
@@ -154,6 +155,7 @@ const SchemaField = ({
           danger
           icon={<DeleteOutlined />}
           onClick={() => onRemoveField(path)}
+          className="ml-auto"
         />
       </Space>
 
