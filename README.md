@@ -31,10 +31,9 @@ A dynamic JSON schema builder built with React and Ant Design that allows users 
 ```
 src/
 ├── components/
-│   ├── SchemaBuilder/
 │   │   ├── SchemaField.jsx
 │   │   ├── SchemaForm.jsx
-│   │   └── index.js
+│   │   
 ├── App.js
 ├── index.js
 ├── styles/
